@@ -1,3 +1,14 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package quicksort;
+
+/**
+ *
+ * @author Dionisius
+ */
 import java.util.Arrays;
 
 class Recursion{
@@ -12,13 +23,32 @@ class Recursion{
         // parameter harus dibuat tipe array untuk skenario pass-by-ref
 
         if(i == 1){ // stopping condition
+            System.out.println("Masuk kondisi stopping!!");
             m[0] = a[0];
             f[0] = 1;
+            System.out.println("Hasil stopping.......");
+            System.out.println("Mode rec saat stopping: " + m[0]);
+            System.out.println("Freq rec saat stopping: " + f[0]);
         }else{ // recursion algorithm
+            System.out.println("Panggil fungsi RMode........");
+            System.out.println("i saat masuk RMode: " + i);
             Rmode(i-1, m, f);
             if(a[i] == a[i-f[0]]){
+                System.out.println("--------------------------------------------------");
+                System.out.println("Masuk kondisi rekursif..........");
+                System.out.println("i: " + i);
+                System.out.println("a[" + i + "]" + "=" + a[i]);
+                System.out.println("a[" + i + "-f[0]]" + "=" + a[i-f[0]]);
+                
+                System.out.println("Set modus m[0] = a[i]");
                 m[0] = a[i];
+                
+                System.out.println("m[0]" + "=" + m[0]);
+                
+                System.out.println("Menambah frekuensi data di m, f[0] = f[0] + 1");
                 f[0] = f[0] + 1;
+                
+                System.out.println("f[0]" + "=" + f[0]);
             }
         }
     }
@@ -52,6 +82,7 @@ class Recursion{
         int mode[] = { a[0] }; // asumsi a[0] adalah modus <sesuai slide>
         int freq[] = { 1 };
 
+        System.out.println("======================================================================");
         // initialization result
         int i = a.length-1;
         System.out.println("Array length - 1: " + i);
@@ -59,6 +90,8 @@ class Recursion{
         System.out.println("Freq init: " + freq[0]);
 
         // Solution rec dan nonrec mengikuti slide rekursif di Classroom
+        
+        System.out.println("======================================================================");
 
         // recursive solution
         Rmode(i, mode, freq);
